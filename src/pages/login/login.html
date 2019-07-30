@@ -1,0 +1,57 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <!-- LOGO -->
+      <ion-col col-12 class="logo-col">
+        <img src="assets/imgs/logo1-tw.png" class="logo-img">
+      </ion-col>
+    </ion-row>
+
+    <!-- LOGIN BOX -->
+    <ion-row>
+      <ion-col col-12>
+        <div class="login-box">
+          <form [formGroup]="loginFrmGroup">
+            <ion-row>
+              <ion-col>
+
+                <ion-list inset>
+                  <ion-item>
+                    <ion-input type="text" placeholder="E-mail" name="email" formControlName="email"
+                     [class.invalido] = "foiSubmetido && !loginFrmGroup.controls.email.valid"
+                     [(ngModel)]="loginModel.email">
+                    </ion-input>
+                  </ion-item>
+                  <p *ngIf="foiSubmnetido && !loginFrmGroup.controls.email.valid" class="mensagem-invalido">
+                    Verifique o e-mail digitado
+                  </p>
+                  <ion-item>
+                    <ion-input type="password" placeholder="Senha" name="senha" formControlName="senha"
+                    [class.invalido] = "foiSubmetido && !loginFrmGroup.controls.email.valid"
+                    [(ngModel)]="loginModel.senha">
+                    </ion-input>
+                  </ion-item>
+                  <p *ngIf="foiSubmnetido && !loginFrmGroup.controls.senha.valid" class="mensagem-invalido">
+                    Verifique a senha digitado
+                  </p>
+                </ion-list>
+
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <button ion-button full icon-left class="btn-login" (click)="login()">
+                  <ion-icon name="log-in"></ion-icon>
+                  Entrar
+                </button>
+              </ion-col>
+            </ion-row>
+
+          </form>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>
